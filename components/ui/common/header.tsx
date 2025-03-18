@@ -1,18 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 import {Button} from '../button';
 import NavLink from './nav-link';
 import { type Metadata } from 'next'
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
+import { UserButton, SignedIn, useUser } from '@clerk/nextjs';
 
 export default function Header() {
+    const { user } = useUser();
     const isLoggedIn = false;
+    const isAdmin = user?.publicMetadata?.role === 'admin';
     return <nav className="container flex items-center justify-between py-4 lg:px-8 px-2 mx-auto">
         <div className="flex justify-start">
             <NavLink href="/" className="flex items-center gap-2 lg:gap-2 shrink-0">
@@ -26,12 +23,16 @@ export default function Header() {
             </NavLink>
         </div>
 
+        {/* Solo mostrar si el usuario está logueado y es admin */}
+        {isAdmin && (
+          <div className="flex-1 flex justify-center">
+            <NavLink href="/Conciliacion" className="text-lg font-semibold text-gray-700 hover:text-gray-900">
+              Conciliación
+            </NavLink>
+          </div>
+        )}
+
         <SignedIn>
-            <div className="flex-1 flex justify-center">
-                <NavLink href="/Conciliacion" className="text-lg font-semibold text-gray-700 hover:text-gray-900">
-                    Conciliación
-                </NavLink>
-            </div>
             <div className="flex justify-end">
                 <UserButton />
             </div>

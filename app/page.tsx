@@ -1,10 +1,27 @@
-//import Image from "next/image";
+'use client';  // Importante: Indica que este es un componente cliente
+
+import { useEffect } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import BgGradient from '@/components/ui/common/bg-gradient';
 
 export default function Home() {
+  const { user, isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isSignedIn) {
+      const role = user?.publicMetadata?.role;  // Obtener el rol del usuario
+
+      if (role === 'operator') {
+        router.push('/operator-page');  // Redirigir a la página de operador
+      }
+    }
+  }, [isSignedIn, user, router]);
+
   return (    
     <div className="realtive w-full">
       <BgGradient />
