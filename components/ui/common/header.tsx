@@ -1,6 +1,15 @@
 import Image from 'next/image';
 import {Button} from '../button';
 import NavLink from './nav-link';
+import { type Metadata } from 'next'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 export default function Header() {
     const isLoggedIn = false;
@@ -17,12 +26,15 @@ export default function Header() {
             </NavLink>
         </div>
 
-        {isLoggedIn ?(<div>
-            <NavLink href="/Conciliacion">Conciliación</NavLink>
-            <Button>Cerrar Sesión</Button>
-        </div>
-        )
-        :null}
-
+        <SignedIn>
+            <div className="flex-1 flex justify-center">
+                <NavLink href="/Conciliacion" className="text-lg font-semibold text-gray-700 hover:text-gray-900">
+                    Conciliación
+                </NavLink>
+            </div>
+            <div className="flex justify-end">
+                <UserButton />
+            </div>
+        </SignedIn>
     </nav>;
 }

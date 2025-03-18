@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import BgGradient from '@/components/ui/common/bg-gradient';
 
 export default function Home() {
-  return (
+  return (    
     <div className="realtive w-full">
       <BgGradient />
       <div className="flex flex-col">
@@ -14,22 +14,8 @@ export default function Home() {
             <h1 className="font-bold py-6 text-center">
               Control y Seguimiento Financiero CATEM</h1>
             <div className="flex justify-center">
-              <Link href="/#login" className="flex gap-2 items-center">
-                <Button variant={'link'} className="
-                text-white 
-                mt-6 
-                text-base 
-                sm:text-lg 
-                lg:text-xl 
-                rounded-full 
-                px-8 
-                sm:px-10 
-                lg:px-12 
-                py-6 
-                sm:py-7 
-                lg:py-8 
-                lg:mt-16 
-                bg-gradient-to-r 
+              <Link href="/sign-in" className="flex gap-2 items-center">
+                <Button variant={'link'} className="text-white mt-6 text-base sm:text-lg lg:text-xl rounded-full px-8 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 lg:mt-16 bg-gradient-to-r 
                 from-slate-900 
                 to-rose-500 
                 hover:from-rose-500 
@@ -42,6 +28,9 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+            <Link href="/sign-up" className="mt-4 text-gray-500 hover:underline text-sm flex justify-center px-8 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 lg:mt-16">
+                Registrarse
+            </Link>
           </div>
         </section>
       </div>
