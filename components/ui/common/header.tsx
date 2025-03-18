@@ -22,11 +22,7 @@ export default function Header() {
             <Button>Cerrar Sesión</Button>
         </div>
         )
-        :(
-        <div className="flex justify-end lg:justify-1">
-            <NavLink href="/login">Iniciar sesión</NavLink>
-        </div>
-        )}
+        :null}
 
     </nav>;
 }

@@ -1,14 +1,50 @@
 //import Image from "next/image";
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import BgGradient from '@/components/ui/common/bg-gradient';
+
 export default function Home() {
   return (
-    <div className="">
-      <h1>
-        Seguimiento de Gastos CATEM
-      </h1>
-      <Button variant="outline" size={'lg'}>
-        Loggeate aquí perro
-      </Button>
+    <div className="realtive w-full">
+      <BgGradient />
+      <div className="flex flex-col">
+        <section className="realtive mx-auto flex flex-col z-0 items-center justify-center py-16 sm:py-20 lg:pb-28 transition-all animate-in lg:px-12 max-w-7xl">
+          <div className="">
+            <h1 className="font-bold py-6 text-center">
+              Control y Seguimiento Financiero CATEM</h1>
+            <div className="flex justify-center">
+              <Link href="/#login" className="flex gap-2 items-center">
+                <Button variant={'link'} className="
+                text-white 
+                mt-6 
+                text-base 
+                sm:text-lg 
+                lg:text-xl 
+                rounded-full 
+                px-8 
+                sm:px-10 
+                lg:px-12 
+                py-6 
+                sm:py-7 
+                lg:py-8 
+                lg:mt-16 
+                bg-gradient-to-r 
+                from-slate-900 
+                to-rose-500 
+                hover:from-rose-500 
+                hover:to-slate-900 
+                hover:no-underline 
+                font-bold
+                shadow-lg transition-all duration-300">
+                  <span>Iniciar sesión</span>
+                  <ArrowRight className="animate-pulse" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
