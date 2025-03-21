@@ -70,7 +70,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Fecha */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="fecha" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="fecha" className="text-base font-semibold text-gray-700">
               Fecha
             </label>
             <input
@@ -83,7 +83,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Folio */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="folio" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="folio" className="text-base font-semibold text-gray-700">
               Folio
             </label>
             <input
@@ -97,7 +97,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Placa */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="placa" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="placa" className="text-base font-semibold text-gray-700">
               Placa
             </label>
             <input
@@ -111,7 +111,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Cap. (M3) */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="capacidad" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="capacidad" className="text-base font-semibold text-gray-700">
               Cap. (M3)
             </label>
             <input
@@ -125,7 +125,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Concepto */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="concepto" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="concepto" className="text-base font-semibold text-gray-700">
               Concepto
             </label>
             <input
@@ -139,7 +139,7 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
 
           {/* Campo de Costo */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="costo" className="text-lg font-semibold text-gray-700">
+            <label htmlFor="costo" className="text-base font-semibold text-gray-700">
               Costo
             </label>
             <input
@@ -151,27 +151,21 @@ export default function ImgVisualizer({ images, operator, onClose }: ImgVisualiz
             />
           </div>
 
-          {/* Campo de Observaciones */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="observaciones" className="text-lg font-semibold text-gray-700">
-              Observaciones
-            </label>
-            <textarea
-              id="observaciones"
-              name="observaciones"
-              placeholder="Ingresa las observaciones"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              rows={4}
-            />
+          {/* Botones de cerrar y guardar */}
+          <div className="flex flex-col gap-4 mt-auto">
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white text-base font-semibold py-2 rounded-md hover:bg-blue-600 transition-all"
+            >
+              Guardar
+            </button>
+            <button
+              onClick={onClose}
+              className="w-full bg-red-500 text-white text-base font-semibold py-2 rounded-md hover:bg-red-600 transition-all"
+            >
+              Cerrar
+            </button>
           </div>
-
-          {/* Botón de cerrar */}
-          <button
-            onClick={onClose}
-            className="w-full bg-red-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-red-600 transition-all"
-          >
-            Cerrar
-          </button>
         </div>
       </div>
 
