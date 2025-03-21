@@ -17,7 +17,9 @@ export default function Home() {
       const role = user?.publicMetadata?.role;  // Obtener el rol del usuario
 
       if (role === 'operator') {
-        router.push('/operator-page');  // Redirigir a la página de operador
+        router.replace('/operator-page');  // Redirigir a la página de operador
+      } else if (role == 'admin') {
+        router.replace('/admin-page');  // Redirigir a la página de administrador
       }
     }
   }, [isSignedIn, user, router]);

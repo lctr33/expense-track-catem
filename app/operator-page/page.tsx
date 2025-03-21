@@ -7,16 +7,31 @@ import BgGradient from '@/components/ui/common/bg-gradient';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [nuevaObra, setNewObra] = useState('');
 
-  const obras = [
-    { nombre: 'Obra Chamilpa', ruta: '/login/trabajador' },
-    { nombre: 'Obra Jiutepec', ruta: '/login/trabajador' },
-    { nombre: 'Obra Tres Marias', ruta: '/login/trabajador' },
-  ];
+  const [obras,setObra] = useState([
+    { nombre: 'Obra Chamilpa', ruta: '/login/trabajador'},
+  ]);
 
   const filteredObras = obras.filter((obra) =>
     obra.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const agregarObra = () => {
+
+    if (nuevaObra.trim() === '') {
+      alert('El nombre de la obra no puede estar vacío.');
+      return;
+    }
+    if (obras.some((obra) => obra.nombre.toLowerCase() === nuevaObra.toLowerCase())) {
+      alert('Esta obra ya existe.');
+      return;
+    }
+
+    const nuevaObraObj = { nombre: nuevaObra, ruta: '/login/trabajador' };
+    setObra([...obras, nuevaObraObj]);
+    setNewObra('');
+  };
 
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden bg-gray-100 text-gray-800 p-4">
@@ -39,6 +54,23 @@ export default function Home() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+        </div>
+
+        {/* Formulario para añadir obra */}
+        <div className="w-full mb-8 flex gap-2">
+          <input
+            type="text"
+            placeholder="Nombre de la nueva obra..."
+            value={nuevaObra}
+            onChange={(e) => setNewObra(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <button
+            onClick={agregarObra}
+            className="bg-green-500 text-white px-5 py-3 rounded-lg hover:bg-green-600 transition-all"
+          >
+            Añadir
+          </button>
         </div>
 
         {/* Contenedor de las cajas */}
